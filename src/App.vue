@@ -54,7 +54,7 @@
 
 import firstcomponent from './component/firstcomponent.vue'
 import WiiHeader from './component/header.vue'
-import WiiGuider from './component/guide.vue'
+import WiiGuider from './component/test_1/guide.vue'
 
 export default {
   name: 'app',

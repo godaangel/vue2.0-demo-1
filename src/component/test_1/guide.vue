@@ -31,7 +31,7 @@
 </template>
 
 <script type="text/javascript">
-	import CONSTANT from '../static/constant.js';
+	import CONSTANT from '../../static/constant.js';
 	export default {
 		data () {
 			var that = this;

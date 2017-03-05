@@ -1,7 +1,5 @@
 <style lang="scss">
-	.dz-body{
-		padding-bottom: 1rem;
-	}
+
 </style>
 
 <template>

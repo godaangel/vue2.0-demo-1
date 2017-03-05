@@ -1,6 +1,6 @@
-<style lang="scss">
+<style lang="scss" scoped>
 	.dz-body{
-		padding-bottom: 4.5rem;
+		padding-bottom: 3.5rem;
 	}
 </style>
 
@@ -32,7 +32,7 @@
 		created(){
 			var that = this;
 			setTimeout(function(){
-				that.itemList = [{title:'1234', subTitle:'我是副标题我是副标题', createTime:'2016-03-22 16:57'},
+				that.itemList = [{title:'1', subTitle:'我是副标题我是副标题', createTime:'2016-03-22 16:57'},
 					{title:'1234', subTitle:'我是副标题我是副标题', createTime:'2016-03-22 16:57'},
 					{title:'1234', subTitle:'我是副标题我是副标题', createTime:'2016-03-22 16:57'},
 					{title:'1234', subTitle:'我是副标题我是副标题', createTime:'2016-03-22 16:57'},
@@ -40,7 +40,7 @@
 					{title:'1234', subTitle:'我是副标题我是副标题', createTime:'2016-03-22 16:57'},
 					{title:'1234', subTitle:'我是副标题我是副标题', createTime:'2016-03-22 16:57'}];
 				Modal.hideLoading();
-			},1000);
+			},100);
 			console.log('created')
 		},
 		mounted(){

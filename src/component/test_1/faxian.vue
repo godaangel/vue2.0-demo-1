@@ -1,6 +1,6 @@
-<style lang="scss">
+<style lang="scss" scoped>
 	.dz-body{
-		padding-bottom: 4.5rem;
+		padding-bottom: 3.5rem;
 	}
 </style>
 
@@ -30,7 +30,7 @@
 		mounted(){
 			setTimeout(function(){
 				Modal.hideLoading();
-			},1000);
+			},0);
 		},
 		methods:{
 			

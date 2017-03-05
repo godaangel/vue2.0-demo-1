@@ -1,0 +1,97 @@
+@import 'mixins.scss';
+.alert-out {
+  z-index: 1999;
+
+  .alert-body {
+    z-index: 99;
+    position: fixed;
+    background: #fff;
+    min-height: 6rem;
+    width: 16rem;
+    left: 50%;
+    top: 50%;
+    @include transform-scale(-50%, -50%, 1.185);
+    @include transition(0.5s);
+    border-radius: 0.5rem;
+    opacity: 0;
+
+    .alert-message {
+      padding-top: 1.2rem;
+      padding-bottom: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      text-align: center;
+    }
+    .alert-foot {
+      text-align: center;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+  .alert-mask {
+    z-index: 98;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &.alert-show .alert-body {
+    @include transform-scale(-50%, -50%, 1);
+    opacity: 1;
+  }
+  &.alert-hide {
+    .alert-body {
+      @include transform-scale(-50%, -50%, 0.815);
+      opacity: 0;
+    }
+    .alert-mask {
+      display: none;
+    }
+  }
+}
+
+.alert-head {
+  text-align: center;
+  padding-top: 1.2rem;
+  margin-bottom: -0.5rem;
+  font-size: 1.05rem;
+}
+.alert-word {
+  font-size: 0.86rem;
+  padding: 0 1rem;
+}
+.alert-foot {
+  .flex-item{
+    padding: 0.8rem;
+    padding-top: 0;
+    .btn{
+      height: 2.4rem;
+      line-height: 2.4rem;
+      width: 100%;
+      font-size: 0.86rem;
+      &.cancel{
+        background: #f4f4f4;
+        color: #969696;
+        border: 1px solid #ddd;
+      }
+    }
+  }
+}
+
+.confirm{
+  .flex-item{
+    padding: 0.8rem 0;
+    padding-top: 0;
+    &:first-child{
+      padding-right:0.4rem;
+      padding-left:0.8rem;
+    }
+    &:last-child{
+      padding-left:0.4rem;
+      padding-right:0.8rem;
+    }
+  }
+}

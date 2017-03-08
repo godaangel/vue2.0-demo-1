@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 
 //引入路由文件router.js
 // import Router from './static/router.js';
-import Router from './static/test_1_router.js';
+import Router from './static/lol_router.js';
 
 Router.beforeEach((to, from, next) => {
   $("body").scrollTop(0);

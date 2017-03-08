@@ -7,22 +7,10 @@ const constant = {
 
     },
     value:{
-        index: {
-            name:'首页',
-            showGuide: true
-        },
-        faxian: {
-            name:'发现',
-            showGuide: true
-        },
-        quanzi: {
-            name:'圈子',
-            showGuide: true
-        },
-        mine: {
-            name:'我的',
-            showGuide: true
-        }
+        news: '新闻',
+        match: '匹配',
+        video: '视频',
+        mine: '我的'
     }
 }
 

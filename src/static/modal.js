@@ -93,7 +93,7 @@ Modal.prototype = {
                             +'<div class="alert-mask"></div>'
                         +'</div>';
             }
-            console.log(alertStr)
+            // console.log(alertStr)
             $("body").append(alertStr);
         }else{
             $(".alert-out .alert-word").html(this.content);

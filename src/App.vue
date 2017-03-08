@@ -46,15 +46,14 @@
     <transition name="slide-fade">
       <router-view class="view"></router-view>
     </transition>
-    <wii-guider></wii-guider>
+    <guider></guider>
   </div>
 </template>
 
 <script>
 
-import firstcomponent from './component/firstcomponent.vue'
 import WiiHeader from './component/header.vue'
-import WiiGuider from './component/test_1/guide.vue'
+import Guider from './component/lol/guide.vue'
 
 export default {
   name: 'app',
@@ -67,9 +66,8 @@ export default {
     console.log('-------'+this.msg+'-------');
   },
   components: { 
-    firstcomponent,
     WiiHeader,
-    WiiGuider
+    Guider
   }
 }
 </script>

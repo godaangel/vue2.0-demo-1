@@ -10,7 +10,8 @@ const constant = {
         news: '新闻',
         match: '匹配',
         video: '视频',
-        mine: '我的'
+        mine: '我的',
+        normalMatch: '快速匹配'
     }
 }
 

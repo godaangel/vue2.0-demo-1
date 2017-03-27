@@ -1,13 +1,15 @@
 <style lang="scss">
+  #app{
+    height: 100%;
+  }
   .slide-fade-enter-active {
-    transition: all 1s ease;
+    transition: all .5s ease;
   }
   .slide-fade-leave-active {
     transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   }
-  .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active for <2.1.8 */ {
-    transform: translateX(10px);
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(100%) rotate(10deg) scale(0.8);
     opacity: 0;
   }
   .bounce-enter-active {

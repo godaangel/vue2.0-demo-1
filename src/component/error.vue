@@ -23,6 +23,7 @@
 </template>
 
 <script type="text/javascript">
+	import Modal from '../static/modal.js';
 	export default {
 		data () {
 			var that = this;
@@ -34,6 +35,13 @@
 			goback(){
 				history.go(-1);
 			}
+		},
+		mounted(){
+			// console.log('----')
+			setTimeout(function(){
+				Modal.hideLoading();
+			},0);
+			this.$bus.emit('changeHeaderTitle', '找不到页面');
 		}
 	}
 </script>

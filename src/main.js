@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VueBus from 'vue-bus';
 import App from './App.vue';
 import VueRouter from "vue-router";
 
@@ -11,6 +12,7 @@ import Modal from './static/modal.js';
 Vue.config.debug = true;
 
 Vue.use(VueRouter);
+Vue.use(VueBus);
 
 //引入路由文件router.js
 // import Router from './static/router.js';
@@ -18,7 +20,6 @@ import Router from './static/lol_router.js';
 
 Router.beforeEach((to, from, next) => {
   $("body").scrollTop(0);
-  Modal.loading();
   next();
 })
 

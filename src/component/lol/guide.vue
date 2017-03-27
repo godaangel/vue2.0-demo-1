@@ -10,19 +10,19 @@
 <template>
 	<div class="fixed-footer" v-if="showGuide">
 		<div class="flex vertical-middle">
-			<router-link class="flex-item link" to="/match/match">
+			<router-link class="flex-item link" to="/match">
 				<i class="iconfont icon-zuanshi"></i>
 				<span>匹配</span>
 			</router-link>
-			<router-link class="flex-item link" to="/news/news">
+			<router-link class="flex-item link" to="/news">
 				<i class="iconfont icon-list"></i>
 				<span>新闻</span>
 			</router-link>
-			<router-link class="flex-item link" to="/video/video">
+			<router-link class="flex-item link" to="/video">
 				<i class="iconfont icon-photo"></i>
 				<span>视频</span>
 			</router-link>
-			<router-link class="flex-item link" to="/mine/mine">
+			<router-link class="flex-item link" to="/mine">
 				<i class="iconfont icon-haoyou"></i>
 				<span>我的</span>
 			</router-link>

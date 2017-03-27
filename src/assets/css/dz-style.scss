@@ -14,6 +14,12 @@ body {
   line-height: normal;
   // background: url(./assets/logo.png);
 }
+html{
+  height: 100%;
+  body{
+    height: 100%;
+  }
+}
 a, a:hover {
   text-decoration: none;
   outline: none
@@ -170,7 +176,7 @@ select {
   text-align: left !important
 }
 .vertical-top {
-  vertical-align: top
+  vertical-align: top;
 }
 .vertical-middle {
   vertical-align: middle
@@ -497,42 +503,45 @@ select {
 }
 .dz-btn {
   height: 2.5rem;
+  line-height: 2.5rem;
   width: 6rem;
   background: #1ABC9C;
   color: #fff;
   font-size: 1.1rem;
   border: none;
-  border-radius: 3px
+  border-radius: 3px;
+  text-align: center;
+  display: block;
 }
-.dz-btn:active, .dz-btn:visited {
+.dz-btn:active{
   background: #16A085;
   color: #eee
 }
 .dz-btn-success {
   background: #2ECC71
 }
-.dz-btn-success:active, .dz-btn-success:visited {
+.dz-btn-success:active {
   background: #27AE60;
   color: #eee
 }
 .dz-btn-info {
   background: #3498DB
 }
-.dz-btn-info:active, .dz-btn-info:visited {
+.dz-btn-info:active{
   background: #2980B9;
   color: #eee
 }
 .dz-btn-warning {
   background: #F1C40F
 }
-.dz-btn-warning:active, .dz-btn-warning:visited {
+.dz-btn-warning:active {
   background: #F39C12;
   color: #eee
 }
 .dz-btn-danger {
-  background: #E74C3C
+  background: #E74C3C;
 }
-.dz-btn-danger:active, .dz-btn-danger:visited {
+.dz-btn-danger:active {
   background: #C0392B;
   color: #eee
 }

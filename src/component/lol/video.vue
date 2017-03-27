@@ -24,6 +24,7 @@
 			Modal.hideLoading();
 		},
 		mounted(){
+			this.$bus.emit('changeHeaderTitle', '视频');
 		},
 		methods:{
 			

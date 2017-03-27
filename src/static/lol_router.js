@@ -1,17 +1,65 @@
 import VueRouter from "vue-router";
-import News from '../component/lol/news.vue';
-import Match from '../component/lol/Match.vue';
-import Video from '../component/lol/video.vue';
-import Mine from '../component/lol/mine.vue';
+// import News from '../component/lol/news.vue';
+// import Match from '../component/lol/Match.vue';
+// import Video from '../component/lol/video.vue';
+// import Mine from '../component/lol/mine.vue';
 
 // 匹配
-import NormalMatch from '../component/lol/match/normal.vue';
-import NormalMatchOne from '../component/lol/match/normalStepOne.vue';
+// import NormalMatch from '../component/lol/match/normal.vue';
+// import NormalMatchOne from '../component/lol/match/normalStepOne.vue';
 
 // 新闻
-import NewsDetail from '../component/lol/news/detail.vue';
+// import NewsDetail from '../component/lol/news/detail.vue';
 
-import ErrorTpl from '../component/error.vue';
+// import ErrorTpl from '../component/error.vue';
+
+// 第一层
+const News = resolve => {
+  // require.ensure 是 Webpack 的特殊语法，用来设置 code-split point
+  // （代码分块）
+  require.ensure(['../component/lol/news.vue'], () => {
+    resolve(require('../component/lol/news.vue'))
+  })
+}
+const Match = resolve => {
+  require.ensure(['../component/lol/match.vue'], () => {
+    resolve(require('../component/lol/match.vue'))
+  })
+}
+const Video = resolve => {
+  require.ensure(['../component/lol/video.vue'], () => {
+    resolve(require('../component/lol/video.vue'))
+  })
+}
+const Mine = resolve => {
+  require.ensure(['../component/lol/mine.vue'], () => {
+    resolve(require('../component/lol/mine.vue'))
+  })
+}
+const ErrorTpl = resolve => {
+  require.ensure(['../component/error.vue'], () => {
+    resolve(require('../component/error.vue'))
+  })
+}
+
+// 匹配相关
+const NormalMatch = resolve => {
+  require.ensure(['../component/lol/match/normal.vue'], () => {
+    resolve(require('../component/lol/match/normal.vue'))
+  })
+}
+const NormalMatchOne = resolve => {
+  require.ensure(['../component/lol/match/normalStepOne.vue'], () => {
+    resolve(require('../component/lol/match/normalStepOne.vue'))
+  })
+}
+
+//新闻相关
+const NewsDetail = resolve => {
+  require.ensure(['../component/lol/news/detail.vue'], () => {
+    resolve(require('../component/lol/news/detail.vue'))
+  })
+}
 
 // 创建一个路由器实例
 // 并且配置路由规则

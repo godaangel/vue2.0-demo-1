@@ -19,8 +19,13 @@ Vue.use(VueBus);
 import Router from './static/lol_router.js';
 
 Router.beforeEach((to, from, next) => {
-  $("body").scrollTop(0);
-  next();
+	Modal.loading();
+	$("body").scrollTop(0);
+	next();
+})
+
+Router.afterEach(route => {
+	Modal.hideLoading();
 })
 
 // 现在我们可以启动应用了！

@@ -45,9 +45,10 @@
 <template>
   <div id="app">
     <wii-header></wii-header>
-    <transition name="slide-fade">
+    <!-- <transition name="slide-fade">
       <router-view class="view"></router-view>
-    </transition>
+    </transition> -->
+    <router-view class="view"></router-view>
     <guider></guider>
   </div>
 </template>

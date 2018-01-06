@@ -1,36 +1,57 @@
-import Vue from 'vue';
-import VueBus from 'vue-bus';
-import App from './App.vue';
-import VueRouter from "vue-router";
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+// import router from './router/index.js'
+import router from './router/demo.js' //演示demo路由 【此处可替换为自己的】
 
-//引入初始化移动端适配大小文件
-import './static/normalize.js'; //单独的js如果没有对象export,则不需要命名以及from;
-//引入弹窗文件
-import Modal from './static/modal.js';
+/**
+ * 尽量不要动 start
+ */
+import VueResource from 'vue-resource'
+import VueScroller from 'vue-scroller'
 
-//开启debug模式
-Vue.config.debug = true;
+Vue.use(VueResource)
+Vue.use(VueScroller)
 
-Vue.use(VueRouter);
-Vue.use(VueBus);
+import {ToastPlugin, AlertPlugin, ConfirmPlugin, WiiPage, WiiNavbar, WiiTabbar, WiiPanel, WiiCells, WiiCellTitle, WiiCellTips, WiiInput, WiiTextarea, WiiCheckbox, WiiRadio, WiiSelect, WiiDatetime, WiiCityPicker, WiiImage, WiiImageGroup, WiiList, WiiListItem, WiiFilter, WiiNoData, WiiLoading, WiiArticle, WiiPreview, WiiPreviewItem, WiiButton} from 'wy-components';
 
-//引入路由文件router.js
-// import Router from './static/router.js';
-import Router from './static/lol_router.js';
 
-Router.beforeEach((to, from, next) => {
-	Modal.loading();
-	$("body").scrollTop(0);
-	next();
+var components = [WiiPage, WiiNavbar, WiiTabbar, WiiPanel, WiiCells, WiiCellTitle, WiiCellTips, WiiInput, WiiTextarea, WiiCheckbox, WiiRadio, WiiSelect, WiiDatetime, WiiCityPicker, WiiImage, WiiImageGroup, WiiList, WiiListItem, WiiFilter, WiiNoData, WiiLoading, WiiArticle, WiiPreview, WiiPreviewItem, WiiButton];
+
+components.map(component => {
+    Vue.component(component.name, component);
+});
+
+Vue.use(ToastPlugin);
+Vue.use(AlertPlugin);
+Vue.use(ConfirmPlugin);
+
+import FastClick from 'fastclick';
+FastClick.attach(document.body);
+
+Vue.config.productionTip = false;
+
+router.beforeEach((to, from, next) => {
+  Vue.$wii.toast.show({
+    text: '加载中',
+    type: 'loading',
+    time: 5000
+  });
+  next();
+});
+
+router.afterEach((to, from) => {
+  Vue.$wii.toast.hide();
 })
+/**
+ * 尽量不要动 end
+ */
 
-Router.afterEach(route => {
-	Modal.hideLoading();
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
 })
-
-// 现在我们可以启动应用了！
-// 路由器会创建一个 App 实例，并且挂载到选择符 #app 匹配的元素上。
-const app = new Vue({
-    router: Router,
-    render: h => h(App)
-}).$mount('#app');

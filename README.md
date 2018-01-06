@@ -1,6 +1,6 @@
-# vue2.0-webpack
+# vue-basic-h5
 
-> A Vue2.0 Test project
+> A Vue.js project
 
 ## Build Setup
 
@@ -13,8 +13,18 @@ npm run dev
 
 # build for production with minification
 npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-## 本项目主要是自己进行vue2.0以及工程化构建的spa研究
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

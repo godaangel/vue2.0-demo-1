@@ -1,84 +1,78 @@
-<style lang="scss">
-  #app{
-    height: 100%;
-  }
-  .slide-fade-enter-active {
-    transition: all .5s ease;
-  }
-  .slide-fade-leave-active {
-    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-  .slide-fade-enter, .slide-fade-leave-to {
-    transform: translateX(100%) rotate(10deg) scale(0.8);
-    opacity: 0;
-  }
-  .bounce-enter-active {
-    animation: bounce-in .5s;
-  }
-  .bounce-leave-active {
-    animation: bounce-out .5s;
-  }
-  @keyframes bounce-in {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes bounce-out {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(0);
-    }
-  }
-</style>
-
 <template>
   <div id="app">
-    <wii-header></wii-header>
-    <!-- <transition name="slide-fade">
+    <transition :name="transitionName">
       <router-view class="view"></router-view>
-    </transition> -->
-    <router-view class="view"></router-view>
-    <guider></guider>
+    </transition>
+    <!-- <wii-tabbar :conf="tabConf"></wii-tabbar> -->
   </div>
 </template>
 
 <script>
-
-import WiiHeader from './component/header.vue'
-import Guider from './component/lol/guide.vue'
-
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App Godaangel!'
+      transitionName: 'slide-left',
+      tabConf:{
+        content:[{
+          model: 'nav',
+          type: 'link',
+          href: '#/book',
+          name: '图书列表',
+          active: true,
+          icon: 'http://39.106.62.130/images/book.svg',
+          icon_active: 'http://39.106.62.130/images/book_active.svg'
+        }, {
+          model: 'nav',
+          type: 'link',
+          href: '#/mine',
+          name: '个人中心',
+          active: false,
+          icon: 'http://39.106.62.130/images/mine.svg',
+          icon_active: 'http://39.106.62.130/images/mine_active.svg'
+        }]
+      },
     }
   },
   mounted(){
-    console.log('-------'+this.msg+'-------');
+    
   },
-  components: { 
-    WiiHeader,
-    Guider
+  watch: {
+    '$route' (to, from) {
+      const toDepth = to.path.split('/').length;
+      const fromDepth = from.path.split('/').length;
+
+      let parentPathList = ['/book', '/mine'];
+
+      // console.log(parentPathList.indexOf(to.path))
+      if(toDepth < fromDepth || parentPathList.indexOf(to.path)!=-1 && parentPathList.indexOf(from.path) != -1 && parentPathList.indexOf(to.path) < parentPathList.indexOf(from.path)){
+        this.transitionName = 'slide-right'
+      }else{
+        this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+      }
+    }
   }
 }
 </script>
 
-<style lang="scss">
-  @import './assets/css/dz-style.scss';
-  @import './assets/css/dz-toast.css';
-  @import './assets/css/modal.scss';
-  @import './assets/css/layout.scss';
-  @import './assets/css/demo.css';
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+.view{
+  transition: all .5s ease;
+}
+.slide-left-enter, .slide-right-leave-active {
+  opacity: 0;
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+.slide-left-leave-active, .slide-right-enter {
+  opacity: 0;
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
 </style>

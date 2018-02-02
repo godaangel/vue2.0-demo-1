@@ -20,11 +20,9 @@
 
 <script type="text/javascript">
 
-  import {Zepto} from 'wy-components';
+  import $ from 'webpack-zepto';
 
   import Utils from '../../../libs/utils.js';
-
-  var $ = Zepto;
 
   export default {
     data() {
